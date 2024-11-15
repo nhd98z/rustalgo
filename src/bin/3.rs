@@ -1,22 +1,20 @@
-use std::{cmp::max, collections::HashMap};
-
 #[allow(dead_code)]
+use std::cmp::max;
 
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
-        let mut m: HashMap<char, i32> = HashMap::new();
         let mut res = 0;
-        let mut from = 0;
-        for (i, c) in s.chars().enumerate() {
-            let index = *m.get(&c).unwrap_or(&-1);
-            // dbg!(i, c, from);
-            if index == -1 {
-                res = max(res, i - from + 1);
-                m.insert(c, i as i32);
+        let mut ss = String::new();
+        for c in s.chars() {
+            if ss.contains(c) {
+                while ss.chars().nth(0).unwrap_or(' ') != c {
+                    ss.remove(0);
+                }
+                ss.remove(0);
+                ss.push(c);
             } else {
-                from = max(from, index as usize + 1);
-                res = max(res, i - from + 1);
-                m.insert(c, i as i32);
+                ss.push(c);
+                res = max(res, ss.len());
             }
         }
         res as i32
