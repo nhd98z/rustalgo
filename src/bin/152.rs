@@ -1,6 +1,5 @@
+#![allow(dead_code)]
 use std::cmp::max;
-
-#[allow(dead_code)]
 
 impl Solution {
     pub fn max_product(nums: Vec<i32>) -> i32 {
@@ -24,5 +23,4 @@ fn main() {
     dbg!(Solution::max_product(vec![-2, 0, -1]));
     dbg!(Solution::max_product(vec![-3, -1, -1]));
     dbg!(Solution::max_product(vec![0, 2]));
-
 }
