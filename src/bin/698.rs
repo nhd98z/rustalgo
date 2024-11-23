@@ -14,8 +14,7 @@ impl Solution {
             return false;
         }
         let mut nums = nums;
-        nums.sort();
-        nums.reverse();
+        nums.sort_unstable_by(|a, b| b.cmp(a)); // Sort in decreasing order
         let mut subsets = vec![0; k as usize];
         Self::dfs(&nums, &mut subsets, 0, target)
     }
@@ -50,8 +49,8 @@ fn main() {
     );
 
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
-    for i in 0..1000 {
-        let n = rand::thread_rng().gen_range(1..=20);
+    for i in 0..10000 {
+        let n = 20;
         let k = rand::thread_rng().gen_range(1..=n);
 
         let mut nums = vec![];

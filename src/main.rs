@@ -2,5 +2,4 @@
 
 struct Solution;
 
-fn main() {
-}
+fn main() {}
