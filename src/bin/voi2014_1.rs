@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 use std::{
     env,
     fs::File,
