@@ -1,12 +1,8 @@
-#![allow(dead_code, unused)]
-
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::hash::{Hash, Hasher};
 
 impl Solution {
     pub fn min_stickers_stupid(stickers: Vec<String>, target: String) -> i32 {
-        let m = stickers.len();
-
         // Preprocess stickers into frequency maps
         let sticker_maps: Vec<[i32; 26]> = stickers
             .iter()

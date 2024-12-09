@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 use rand::Rng;
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -100,12 +98,12 @@ fn main() {
     );
 
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
-    for i in 0..10000 {
+    for _ in 0..10000 {
         let n = 20;
         let k = rand::thread_rng().gen_range(1..=n);
 
         let mut nums = vec![];
-        for i in 0..n {
+        for _ in 0..n {
             nums.push(rand::thread_rng().gen_range(1..=10_000));
         }
         dbg!(nums.len(), k);

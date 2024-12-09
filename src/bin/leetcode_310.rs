@@ -25,7 +25,6 @@ impl Solution {
         *h.iter().max().unwrap() - 1
     }
 
-    #[allow(dead_code)]
     pub fn find_min_height_trees_tle(n: i32, edges: Vec<Vec<i32>>) -> Vec<i32> {
         let heights: Vec<i32> = (0..n).map(|i| Self::find_height(n, i, &edges)).collect();
         let min_height = heights.iter().min().unwrap();

@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 impl Solution {
     pub fn remove_occurrences(s: String, part: String) -> String {
         let mut s = s;

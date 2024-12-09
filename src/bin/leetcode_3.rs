@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-use std::cmp::max;
-
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
         let mut res = 0;
@@ -14,7 +11,7 @@ impl Solution {
                 ss.push(c);
             } else {
                 ss.push(c);
-                res = max(res, ss.len());
+                res = usize::max(res, ss.len());
             }
         }
         res as i32

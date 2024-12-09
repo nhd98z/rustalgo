@@ -1,9 +1,4 @@
-#![allow(dead_code, unused)]
-
-use std::{
-    cmp::min,
-    time::{SystemTime, UNIX_EPOCH},
-};
+use std::time::{SystemTime, UNIX_EPOCH};
 
 impl Solution {
     fn dfs(matchsticks: &Vec<i32>, sides: &mut Vec<i32>, pos: i32, target: i32) -> bool {
@@ -28,7 +23,7 @@ impl Solution {
 
     pub fn makesquare(matchsticks: Vec<i32>) -> bool {
         let sum: i32 = matchsticks.iter().sum();
-        if (sum % 4 != 0) {
+        if sum % 4 != 0 {
             return false;
         }
         let target = sum / 4;
@@ -47,13 +42,13 @@ struct Solution;
 
 fn main() {
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
-    assert!(Solution::makesquare(vec![1, 1, 1, 1]) == true);
-    assert!(Solution::makesquare(vec![1, 1, 2, 2, 2]) == true);
-    assert!(Solution::makesquare(vec![3, 3, 4, 3, 3]) == false);
-    assert!(Solution::makesquare(vec![3, 3, 3, 3, 4, 2, 1]) == false);
-    assert!(Solution::makesquare(vec![10, 6, 5, 5, 5, 3, 3, 3, 2, 2, 2, 2]) == true);
-    assert!(Solution::makesquare(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, 2, 1]) == false);
-    assert!(Solution::makesquare(vec![5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3]) == true);
+    assert_eq!(Solution::makesquare(vec![1, 1, 1, 1]), true);
+    assert_eq!(Solution::makesquare(vec![1, 1, 2, 2, 2]), true);
+    assert_eq!(Solution::makesquare(vec![3, 3, 4, 3, 3]), false);
+    assert_eq!(Solution::makesquare(vec![3, 3, 3, 3, 4, 2, 1]), false);
+    assert_eq!(Solution::makesquare(vec![10, 6, 5, 5, 5, 3, 3, 3, 2, 2, 2, 2]), true);
+    assert_eq!(Solution::makesquare(vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, 2, 1]), false);
+    assert_eq!(Solution::makesquare(vec![5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3]), true);
     let end = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
     dbg!(end - start);
 }

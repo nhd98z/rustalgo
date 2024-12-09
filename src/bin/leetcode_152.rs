@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-use std::cmp::max;
-
 impl Solution {
     pub fn max_product(nums: Vec<i32>) -> i32 {
         let mut res = nums[0];
@@ -10,7 +7,7 @@ impl Solution {
             let candidates = [nums[i], cmin * nums[i], cmax * nums[i]];
             cmin = candidates.into_iter().min().unwrap();
             cmax = candidates.into_iter().max().unwrap();
-            res = max(res, cmax);
+            res = i32::max(res, cmax);
         }
         res
     }

@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
         let mut a = vec!["".to_string(); num_rows as usize];

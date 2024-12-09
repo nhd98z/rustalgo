@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 impl Solution {
     pub fn min_cost_climbing_stairs_ugly(cost: Vec<i32>) -> i32 {
         if cost.len() == 2 {

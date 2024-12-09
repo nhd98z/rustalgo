@@ -1,7 +1,3 @@
-#![allow(dead_code, unused)]
-
-use std::i32;
-
 impl Solution {
     pub fn divide(dividend: i32, divisor: i32) -> i32 {
         if divisor == 1 {

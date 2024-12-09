@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 use rand::Rng;
 
 impl Solution {

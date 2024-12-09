@@ -1,7 +1,3 @@
-#![allow(dead_code, unused)]
-
-use std::collections::HashMap;
-
 impl Solution {
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
         let mut res: Vec<String> = vec![];

@@ -1,6 +1,7 @@
-#![allow(dead_code)]
-use std::{collections::HashMap, time::{SystemTime, UNIX_EPOCH}};
-
+use std::{
+    collections::HashMap,
+    time::{SystemTime, UNIX_EPOCH},
+};
 
 impl Solution {
     pub fn count_arrangement_stupid(n: i32) -> i32 {

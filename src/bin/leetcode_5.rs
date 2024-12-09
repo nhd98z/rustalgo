@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
         // O(n^2)
@@ -28,6 +26,7 @@ impl Solution {
         }
         res
     }
+
     pub fn longest_palindrome_manacher(s: String) -> String {
         todo!()
     }

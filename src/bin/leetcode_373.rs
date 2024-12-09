@@ -1,5 +1,3 @@
-#![allow(dead_code, unused)]
-
 impl Solution {
     pub fn total_hamming_distance(nums: Vec<i32>) -> i32 {
         let n = nums.len();
