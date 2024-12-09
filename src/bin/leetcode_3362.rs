@@ -1,19 +1,19 @@
 use std::collections::BinaryHeap;
 
 impl Solution {
-    pub fn max_removal(nums: Vec<i32>, mut queries: Vec<Vec<i32>>) -> i32 {
-        let (n, q) = (nums.len(), queries.len());
-        queries.sort_unstable_by_key(|q| q[0]);
+    pub fn max_removal(nums: Vec<i32>, queries: Vec<Vec<i32>>) -> i32 {
+        let n = nums.len();
+        let q = queries.len();
+        let mut ans = q;
         let mut arr = vec![0; n + 1];
         let mut decr = 0;
         let mut idx = 0;
-        let mut ans = q as i32;
-        let mut heap = BinaryHeap::new();
-        let queries: Vec<(usize, usize)> = queries
-            .into_iter()
-            .map(|v| (v[0] as usize, v[1] as usize))
+        let mut queries: Vec<(usize, usize)> = queries
+            .iter()
+            .map(|q| (q[0] as usize, q[1] as usize))
             .collect();
-
+        let mut heap = BinaryHeap::new();
+        queries.sort_unstable_by(|a, b| a.cmp(b));
         for i in 0..n {
             decr -= arr[i];
             let mut need = nums[i] - decr;
@@ -26,18 +26,16 @@ impl Solution {
                     if end < i {
                         continue;
                     }
-                    if end + 1 < arr.len() {
-                        arr[end + 1] += 1;
-                    }
-                    ans -= 1;
+                    arr[end + 1] += 1;
                     decr += 1;
                     need -= 1;
+                    ans -= 1;
                 } else {
                     return -1;
                 }
             }
         }
-        ans
+        ans as i32
     }
 }
 
