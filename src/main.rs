@@ -1,3 +1,5 @@
+mod leetcode_template;
+
 use std::{
     env,
     fs::File,
