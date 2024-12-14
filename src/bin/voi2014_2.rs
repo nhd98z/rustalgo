@@ -12,7 +12,7 @@ fn solve_one(m: usize, n: usize, a: Vec<usize>, b: Vec<usize>) {
         let mut curr = 0;
         for j in 0..n {
             let prev = curr;
-            if 2 * b[j] <= a[i] {
+            if b[j] * 2 <= a[i] {
                 curr = usize::max(curr, dp[j]);
             }
             if a[i] == b[j] {
@@ -20,7 +20,8 @@ fn solve_one(m: usize, n: usize, a: Vec<usize>, b: Vec<usize>) {
             }
         }
     }
-    println!("{}", dp.iter().max().unwrap());
+    let res = dp.into_iter().max().unwrap();
+    println!("{}", res);
 }
 
 fn solve<R: BufRead>(reader: &mut R) {
