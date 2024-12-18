@@ -1,7 +1,7 @@
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
         // O(n^2)
-        let mut s: Vec<u8> = s.bytes().into_iter().collect();
+        let s: Vec<u8> = s.bytes().into_iter().collect();
         let n = s.len() as i32;
         let mut res: String = (s[0] as char).to_string();
         for i in 0..n {
@@ -27,6 +27,7 @@ impl Solution {
         res
     }
 
+    #[allow(dead_code, unused_variables)]
     pub fn longest_palindrome_manacher(s: String) -> String {
         todo!()
     }

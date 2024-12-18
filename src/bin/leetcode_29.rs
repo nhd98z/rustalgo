@@ -19,7 +19,7 @@ impl Solution {
         } else {
             dividend.abs()
         };
-        let mut divisor = if divisor == i32::MIN {
+        let divisor = if divisor == i32::MIN {
             i32::MAX
         } else {
             divisor.abs()

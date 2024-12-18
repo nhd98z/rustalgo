@@ -1,4 +1,5 @@
 impl Solution {
+    #[allow(dead_code)]
     pub fn min_cost_climbing_stairs_ugly(cost: Vec<i32>) -> i32 {
         if cost.len() == 2 {
             return i32::min(cost[0], cost[1]);
