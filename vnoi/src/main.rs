@@ -1,5 +1,3 @@
-mod leetcode_template;
-
 use std::{
     env,
     fs::File,
@@ -26,7 +24,7 @@ fn solve<R: BufRead>(reader: &mut R) {
 fn get_reader() -> Box<dyn BufRead> {
     if env::var("USER").unwrap_or_default() == "nhd98z" {
         let path = format!(
-            "src/bin/{}.txt",
+            "vnoi/src/bin/{}.txt",
             Path::new(file!()).file_stem().unwrap().to_str().unwrap()
         );
         match File::open(&path) {
