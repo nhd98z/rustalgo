@@ -17,7 +17,7 @@ impl UnionFind {
         self.parent[x]
     }
 
-    fn union(&mut self, x: usize, y: usize) -> bool {
+    fn unite(&mut self, x: usize, y: usize) -> bool {
         let root_x = self.find(x);
         let root_y = self.find(y);
         if root_x == root_y {
@@ -50,7 +50,7 @@ impl Solution {
         let mut uf = UnionFind::new(n);
         let mut ans = 0;
         for (dist, i, j) in edges {
-            if uf.union(i, j) {
+            if uf.unite(i, j) {
                 ans += dist;
             }
         }

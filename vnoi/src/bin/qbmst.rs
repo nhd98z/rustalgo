@@ -24,7 +24,7 @@ impl UnionFind {
         self.parent[x]
     }
 
-    fn union(&mut self, x: usize, y: usize) -> bool {
+    fn unite(&mut self, x: usize, y: usize) -> bool {
         let root_x = self.find(x);
         let root_y = self.find(y);
         if root_x == root_y {
@@ -62,7 +62,7 @@ fn solve_one<R: BufRead>(reader: &mut R) {
     let mut ef = UnionFind::new(n);
     let mut ans = 0;
     for (w, u, v) in edges {
-        if ef.union(u, v) {
+        if ef.unite(u, v) {
             ans += w;
         }
     }
