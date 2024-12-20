@@ -5,48 +5,68 @@ use std::{
     path::Path,
 };
 
+struct UnionFind {
+    parent: Vec<usize>,
+    rank: Vec<usize>,
+}
+
+impl UnionFind {
+    fn new(n: usize) -> Self {
+        let parent = (0..n).collect();
+        let rank = vec![0; n];
+        UnionFind { parent, rank }
+    }
+
+    fn find(&mut self, x: usize) -> usize {
+        if self.parent[x] != x {
+            self.parent[x] = self.find(self.parent[x]);
+        }
+        self.parent[x]
+    }
+
+    fn union(&mut self, x: usize, y: usize) -> bool {
+        let root_x = self.find(x);
+        let root_y = self.find(y);
+        if root_x == root_y {
+            return false;
+        }
+        if self.rank[root_x] < self.rank[root_y] {
+            self.parent[root_x] = root_y;
+        } else {
+            self.parent[root_y] = root_x;
+        }
+        if self.rank[root_x] == self.rank[root_y] {
+            self.rank[root_x] += 1;
+        }
+        true
+    }
+}
+
 fn solve_one<R: BufRead>(reader: &mut R) {
     let mut s = String::new();
     reader.read_line(&mut s).unwrap();
     let mut iter = s.split_whitespace();
     let n: usize = iter.next().unwrap().parse().unwrap();
-    let a: usize = iter.next().unwrap().parse().unwrap();
-    let b: usize = iter.next().unwrap().parse().unwrap();
-    let mut d = vec![0; n as usize];
-    let mut k = vec![0; n as usize];
-    for i in 0..n {
+    let m: usize = iter.next().unwrap().parse().unwrap();
+    let mut edges = vec![];
+    for _ in 0..m {
         s.clear();
         reader.read_line(&mut s).unwrap();
         let mut iter = s.split_whitespace();
-        d[i as usize] = iter.next().unwrap().parse().unwrap();
-        k[i as usize] = iter.next().unwrap().parse().unwrap();
+        let u: usize = iter.next().unwrap().parse().unwrap();
+        let v: usize = iter.next().unwrap().parse().unwrap();
+        let w: i64 = iter.next().unwrap().parse().unwrap();
+        edges.push((w, u - 1, v - 1));
     }
-    let mut combined: Vec<_> = d.into_iter().zip(k.into_iter()).collect();
-    combined.sort_unstable_by(|a, b| a.0.cmp(&b.0));
-    let (d, k): (Vec<_>, Vec<_>) = combined.into_iter().unzip();
-    let mut aa = 0;
-    let mut bb = 0;
-    let mut i = 0;
-    let mut j = 0;
-    let mut res = i64::MAX;
-    while j < n {
-        if k[j] == 1 {
-            aa += 1;
-        } else {
-            bb += 1;
+    edges.sort_unstable();
+    let mut ef = UnionFind::new(n);
+    let mut ans = 0;
+    for (w, u, v) in edges {
+        if ef.union(u, v) {
+            ans += w;
         }
-        while aa >= a && bb >= b && i < j {
-            res = i64::min(res, d[j] - d[i]);
-            if k[i] == 1 {
-                aa -= 1;
-            } else {
-                bb -= 1;
-            }
-            i += 1;
-        }
-        j += 1;
     }
-    println!("{}", if res == i64::MAX { -1 } else { res });
+    println!("{}", ans);
 }
 
 fn solve<R: BufRead>(reader: &mut R) {
