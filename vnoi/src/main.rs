@@ -1,11 +1,7 @@
 #![allow(dead_code)]
 
-fn solve_one<R: std::io::BufRead>(reader: &mut R) {
-    let mut s = String::new();
-    reader.read_line(&mut s).unwrap();
-    let mut iter = s.split_whitespace();
-    let n: usize = iter.next().unwrap().parse().unwrap();
-    dbg!(n);
+fn solve_one(n: usize) {
+    println!("n = {:?}", &n);
 }
 
 fn solve<R: std::io::BufRead>(reader: &mut R) {
@@ -14,7 +10,11 @@ fn solve<R: std::io::BufRead>(reader: &mut R) {
     // let testcase: usize = s.trim().parse().unwrap();
     let testcase: usize = 1;
     for _ in 0..testcase {
-        solve_one(reader);
+        let mut s = String::new();
+        reader.read_line(&mut s).unwrap();
+        let mut iter = s.split_whitespace();
+        let n: usize = iter.next().unwrap().parse().unwrap();
+        solve_one(n);
     }
 }
 
@@ -32,7 +32,7 @@ fn get_reader() -> Box<dyn std::io::BufRead> {
             Ok(file) => Box::new(std::io::BufReader::new(file)),
             Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
                 std::fs::File::create(&path)
-                    .expect(&format!("Failed to create input file: {}", &path));
+                    .unwrap_or_else(|_| panic!("Failed to create input file: {}", &path));
                 panic!("Input file not found. An empty file has been created.");
             }
             Err(e) => {
