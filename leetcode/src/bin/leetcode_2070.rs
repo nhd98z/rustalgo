@@ -30,6 +30,7 @@ impl Solution {
                 res[i] = prefix_max[left - 1];
             }
         }
+        
         res
     }
 }
