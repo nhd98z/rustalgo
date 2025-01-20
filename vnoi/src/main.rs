@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 fn solve_one(n: usize) {
     println!("n = {:?}", &n);
 }
