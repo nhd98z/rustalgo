@@ -1,19 +1,23 @@
 #![allow(dead_code)]
 
 impl Solution {
+    // pub fn max_profit(a: Vec<i32>) -> i32 {
+    //     let mut res = 0;
+    //     let n = a.len();
+    //     let mut i = 0;
+    //     while i < n {
+    //         let mut j = i + 1;
+    //         while j < n && a[j] >= a[j - 1] {
+    //             j += 1;
+    //         }
+    //         res += a[j - 1] - a[i];
+    //         i = j;
+    //     }
+    //     res
+    // }
+
     pub fn max_profit(a: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let n = a.len();
-        let mut i = 0;
-        while i < n {
-            let mut j = i + 1;
-            while j < n && a[j] >= a[j - 1] {
-                j += 1;
-            }
-            res += a[j - 1] - a[i];
-            i = j;
-        }
-        res
+        a.windows(2).fold(0, |acc, w| acc + (w[1] - w[0]).max(0))
     }
 }
 
