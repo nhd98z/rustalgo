@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-fn main() {}
-
 struct UnionFind {
     parent: Vec<usize>,
     rank: Vec<usize>,
@@ -36,4 +33,13 @@ impl UnionFind {
         }
         true
     }
+}
+
+fn main() {
+    let mut uf = UnionFind::new(5);
+    uf.unite(0, 1);
+    uf.unite(1, 2);
+    uf.unite(3, 4);
+    println!("{:?}", uf.parent);
+    println!("{:?}", uf.rank);
 }

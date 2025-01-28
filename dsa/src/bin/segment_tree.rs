@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-fn main() {}
-
 struct SegmentTree {
     n: usize,
     arr: Vec<i32>,
@@ -28,4 +25,11 @@ impl SegmentTree {
         self.build(right_child, mid + 1, r);
         self.tree[node] = self.tree[left_child] + self.tree[right_child];
     }
+}
+
+fn main() {
+    let arr = vec![1, 3, 5, 7, 9, 11];
+    let st = SegmentTree::new(arr);
+    println!("st.n = {:?}", &st.n);
+    println!("{:?}", st.tree);
 }
