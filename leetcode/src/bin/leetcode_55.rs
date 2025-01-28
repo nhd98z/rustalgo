@@ -15,7 +15,7 @@ impl Solution {
             }
             visited[pos] = true;
         }
-        false
+        false   
     }
 
     pub fn can_jump_stupid(a: Vec<i32>) -> bool {
