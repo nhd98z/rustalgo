@@ -1,5 +1,3 @@
-use std::collections::VecDeque;
-
 struct Graph {
     n: usize,           // Number of nodes
     g: Vec<Vec<usize>>, // Adjacency list
