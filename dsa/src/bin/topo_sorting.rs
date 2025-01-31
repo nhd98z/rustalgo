@@ -4,7 +4,7 @@ struct Graph {
 }
 
 impl Graph {
-    fn new(n: usize, m: usize, edges: Vec<(usize, usize)>) -> Graph {
+    fn new(n: usize, m: usize, edges: &Vec<(usize, usize)>) -> Graph {
         let mut g = vec![vec![]; n];
         for i in 0..m {
             let (u, v) = edges[i];
@@ -78,7 +78,7 @@ fn main() {
     let n = 6;
     let m = 6;
     let edges = vec![(5, 2), (5, 0), (4, 0), (4, 1), (2, 3), (3, 1)];
-    let g = Graph::new(n, m, edges);
+    let g = Graph::new(n, m, &edges);
     let topo = g.topo_kahn();
     println!("{:?}", topo);
     let topo = g.topo_dfs();
