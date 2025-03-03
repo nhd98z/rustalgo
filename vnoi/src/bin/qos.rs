@@ -44,8 +44,8 @@ static mut PATH_COUNT: [[i32; MAX_EXTRA_DELAY]; MAX_NODES + 1] = [[-1; MAX_EXTRA
 static mut MIN_DISTANCE: [usize; MAX_NODES + 1] = [INFINITY_VALUE; MAX_NODES + 1];
 
 // Đồ thị theo hướng thuận và ngược
-static mut FORWARD_GRAPH: Vec<Vec<Edge>> = Vec::new();  // G[u] -> danh sách cạnh ra từ u
-static mut REVERSE_GRAPH: Vec<Vec<Edge>> = Vec::new();  // R[v] -> danh sách cạnh vào v
+static mut FORWARD_GRAPH: Vec<Vec<Edge>> = Vec::new(); // G[u] -> danh sách cạnh ra từ u
+static mut REVERSE_GRAPH: Vec<Vec<Edge>> = Vec::new(); // R[v] -> danh sách cạnh vào v
 
 // Các biến config
 static mut NODE_COUNT: usize = 0;
@@ -94,16 +94,12 @@ unsafe fn count_paths(current_node: usize, extra_delay: i32) -> i32 {
             // => Chênh lệch = MIN_DISTANCE[current_node] - MIN_DISTANCE[next_node] - edge_delay
             //    Nếu dương: đường dài hơn đường ngắn nhất
             //    Nếu âm: đường ngắn hơn (không thể xảy ra vì MIN_DISTANCE đã tối ưu)
-            let next_extra_delay = extra_delay as i64 +
-                                  MIN_DISTANCE[current_node] as i64 -
-                                  MIN_DISTANCE[next_node] as i64 -
-                                  edge_delay as i64;
+            let next_extra_delay = extra_delay as i64 + MIN_DISTANCE[current_node] as i64 - MIN_DISTANCE[next_node] as i64 - edge_delay as i64;
 
             // Chỉ tiếp tục nếu next_extra_delay không âm
             if next_extra_delay >= 0 {
                 // Cộng dồn số đường đi từ next_node đến đích
-                PATH_COUNT[current_node][extra_delay as usize] +=
-                    count_paths(next_node, next_extra_delay as i32);
+                PATH_COUNT[current_node][extra_delay as usize] += count_paths(next_node, next_extra_delay as i32);
 
                 // Giới hạn đếm để tránh tràn số
                 if PATH_COUNT[current_node][extra_delay as usize] >= MAX_COUNT_CAP as i32 {
@@ -124,10 +120,7 @@ fn main() {
     // Đọc input: số nút, số cạnh, nút đích, chỉ số K
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
-    let arr: Vec<usize> = line
-        .split_whitespace()
-        .map(|x| x.parse().unwrap())
-        .collect();
+    let arr: Vec<usize> = line.split_whitespace().map(|x| x.parse().unwrap()).collect();
 
     unsafe {
         NODE_COUNT = arr[0];
@@ -147,22 +140,16 @@ fn main() {
     for _ in 0..unsafe { EDGE_COUNT } {
         let mut line = String::new();
         reader.read_line(&mut line).unwrap();
-        let arr: Vec<usize> = line
-            .split_whitespace()
-            .map(|x| x.parse().unwrap())
-            .collect();
+        let arr: Vec<usize> = line.split_whitespace().map(|x| x.parse().unwrap()).collect();
 
         let (from_node, to_node, delay) = (arr[0], arr[1], arr[2]);
 
         unsafe {
             // Thêm cạnh vào đồ thị thuận và ngược
-            FORWARD_GRAPH[from_node].push(Edge {
-                destination: to_node,
-                delay
-            });
+            FORWARD_GRAPH[from_node].push(Edge { destination: to_node, delay });
             REVERSE_GRAPH[to_node].push(Edge {
                 destination: from_node,
-                delay
+                delay,
             });
         }
 
@@ -240,7 +227,7 @@ fn main() {
         }
 
         // Khôi phục đường đi thứ K bằng cách xây dựng từng bước
-        let mut path = vec![1];  // Bắt đầu từ nút nguồn
+        let mut path = vec![1]; // Bắt đầu từ nút nguồn
         let mut current_node = 1;
         let mut remaining_k = KTH_PATH;
         let mut remaining_delay = MAX_ALLOWED_DELAY;
