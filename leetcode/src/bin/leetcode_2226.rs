@@ -26,7 +26,7 @@ impl Solution {
             }
         }
 
-        r as _
+        r as i32
     }
 }
 
