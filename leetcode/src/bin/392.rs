@@ -31,7 +31,6 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    std::env::set_var("RUST_BACKTRACE", "1");
     assert_eq!(Solution::is_subsequence(s!("abc"), s!("ahbgdc")), true);
     assert_eq!(Solution::is_subsequence(s!("axc"), s!("ahbgdc")), false);
     assert_eq!(Solution::is_subsequence(s!(""), s!("ahbgdc")), true);     // empty string is always a subsequence

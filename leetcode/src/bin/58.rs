@@ -13,7 +13,6 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    std::env::set_var("RUST_BACKTRACE", "1");
     assert_eq!(Solution::length_of_last_word(s!("Hello World")), 5);
     assert_eq!(Solution::length_of_last_word(s!("   fly me   to   the moon  ")), 4);
     assert_eq!(Solution::length_of_last_word(s!("luffy is still joyboy")), 6);

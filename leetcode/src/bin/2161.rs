@@ -33,8 +33,6 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    std::env::set_var("RUST_BACKTRACE", "1");
-
     // Single element
     assert_eq!(Solution::pivot_array(vec![1], 1), vec![1]);
 

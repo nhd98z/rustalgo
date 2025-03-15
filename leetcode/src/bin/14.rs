@@ -19,7 +19,6 @@ macro_rules! s {
 struct Solution;
 
 fn main() {
-    std::env::set_var("RUST_BACKTRACE", "1");
     assert_eq!(Solution::longest_common_prefix(vec![s!("flower"), s!("flow"), s!("flight")]), s!("fl"));
     assert_eq!(Solution::longest_common_prefix(vec![s!("dog"), s!("racecar"), s!("car")]), s!(""));
 }
