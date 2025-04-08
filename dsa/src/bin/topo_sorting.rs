@@ -70,7 +70,7 @@ impl Graph {
         if topo.len() < self.n {
             return Err(());
         }
-        Ok(topo)    
+        Ok(topo)
     }
 }
 
