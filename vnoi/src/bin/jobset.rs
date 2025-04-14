@@ -41,7 +41,7 @@
 
 // Các bước tiến tới giải bài này:
 // [x] https://leetcode.com/problems/flower-planting-with-no-adjacent/description/ (Bài tập về tô màu đồ thị, dễ)
-// [] https://leetcode.com/problems/network-delay-time/description/ (Bài về đường đi ngắn nhất)
+// [x] https://leetcode.com/problems/network-delay-time/description/ (Bài về đường đi ngắn nhất)
 // [] https://leetcode.com/problems/course-schedule-iv/description/ (Đồ thị có hướng và ràng buộc)
 // [] https://leetcode.com/problems/parallel-courses-iii/description/ (DAG và tối ưu)
 // [] https://leetcode.com/problems/critical-connections-in-a-network/description/ (Cầu trong đồ thị)
