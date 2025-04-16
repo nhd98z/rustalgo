@@ -43,7 +43,7 @@
 // [x] https://leetcode.com/problems/flower-planting-with-no-adjacent/description/ (Bài tập về tô màu đồ thị, dễ)
 // [x] https://leetcode.com/problems/network-delay-time/description/ (Bài về đường đi ngắn nhất)
 // [x] https://leetcode.com/problems/course-schedule-iv/description/ (Đồ thị có hướng và ràng buộc)
-// [] https://leetcode.com/problems/parallel-courses-iii/description/ (DAG và tối ưu)
+// [x] https://leetcode.com/problems/parallel-courses-iii/description/ (DAG và tối ưu)
 // [] https://leetcode.com/problems/critical-connections-in-a-network/description/ (Cầu trong đồ thị)
 // [] https://wiki.vnoi.info/algo/graph-theory/flow (Lý thuyết về Max flow)
 // [] https://oj.vnoi.info/problem/flow1 (Bài mẫu để xử lý vấn đề Max flow)
