@@ -1,23 +1,103 @@
-use std::io::{self};
+use std::{
+    io::{self, BufRead},
+    str::SplitWhitespace,
+    sync::{Mutex, OnceLock},
+};
 
-macro_rules! read_line {
-    ($t:ty) => {{
-        use std::io::BufRead;
+// Global iterator for buffered token reading
+static TOKENS: OnceLock<Mutex<SplitWhitespace<'static>>> = OnceLock::new();
+
+/// Initialize or fetch the token iterator, reading one line and splitting into tokens
+fn token_iter() -> &'static Mutex<SplitWhitespace<'static>> {
+    TOKENS.get_or_init(|| {
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.split_whitespace().map(|w| w.parse::<$t>().unwrap()).collect::<Vec<$t>>()
+        let static_str: &'static str = Box::leak(line.into_boxed_str());
+        Mutex::new(static_str.split_whitespace())
+    })
+}
+
+/// Fetch next token of type T, reading a new line if current buffer is exhausted
+fn next_token<T: std::str::FromStr>() -> T
+where
+    T::Err: std::fmt::Debug,
+{
+    let mut iter = token_iter().lock().unwrap();
+    if let Some(tok) = iter.next() {
+        tok.parse().unwrap()
+    } else {
+        drop(iter);
+        let mut line = String::new();
+        io::stdin().lock().read_line(&mut line).unwrap();
+        let static_str: &'static str = Box::leak(line.into_boxed_str());
+        let mut new_iter = static_str.split_whitespace();
+        let tok = new_iter.next().expect("No token found");
+        *TOKENS.get().unwrap().lock().unwrap() = new_iter;
+        tok.parse().unwrap()
+    }
+}
+
+/// Macro for reading a single whitespace-separated token as type T
+macro_rules! read {
+    ($t:ty) => {
+        next_token::<$t>()
+    };
+}
+
+/// Macro for reading a full line into Vec<T>, with optional custom delimiter
+macro_rules! read_arr {
+    ($t:ty) => {{
+        let mut line = String::new();
+        io::stdin().lock().read_line(&mut line).unwrap();
+        line.split_whitespace()
+            .map(|w| w.parse::<$t>().unwrap())
+            .collect::<Vec<$t>>()
     }};
     ($t:ty, $d:expr) => {{
-        use std::io::BufRead;
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.trim_end_matches('\n').split($d).filter(|s| !s.is_empty()).map(|w| w.parse::<$t>().unwrap()).collect::<Vec<$t>>()
+        line.trim_end_matches('\n')
+            .split($d)
+            .filter(|s| !s.is_empty())
+            .map(|w| w.parse::<$t>().unwrap())
+            .collect::<Vec<$t>>()
+    }};
+}
+
+/// Macro for reading a full line as String or parsing it into T or Vec<T>
+macro_rules! read_line {
+    () => {{
+        let mut line = String::new();
+        io::stdin().lock().read_line(&mut line).unwrap();
+        line.trim_end_matches(&['\r', '\n'][..]).to_string()
+    }};
+    ($t:ty) => {{
+        let mut line = String::new();
+        io::stdin().lock().read_line(&mut line).unwrap();
+        line.trim_end_matches(&['\r', '\n'][..])
+            .parse::<$t>()
+            .unwrap()
+    }};
+    ($t:ty, $d:expr) => {{
+        let mut line = String::new();
+        io::stdin().lock().read_line(&mut line).unwrap();
+        line.trim_end_matches('\n')
+            .split($d)
+            .filter(|s| !s.is_empty())
+            .map(|w| w.parse::<$t>().unwrap())
+            .collect::<Vec<$t>>()
     }};
 }
 
 fn main() {
-    // Example 1: read the whole first line into a vector
-    let nm: Vec<usize> = read_line!(usize); // e.g. input "12 34\n"
-    let (n, m) = (nm[0], nm[1]);
-    println!("read_line → n={n}, m={m}");
+    let n: usize = read!(usize);
+    let m: usize = read!(usize);
+    let s: String = read!(String);
+    println!("n = {}, m = {}, s = {}", n, m, s);
+
+    let v: Vec<usize> = read_arr!(usize);
+    println!("read_arr → v={:?}", v);
+
+    let line: String = read_line!();
+    println!("readline → {}", line);
 }
