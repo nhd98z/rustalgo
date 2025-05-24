@@ -61,6 +61,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "proconio"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c10091de86d0dc939b37a115d74597cbe83af470032a1729d50c98ccee043cb0"
+
+[[package]]
 name = "quote"
 version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -119,6 +125,9 @@ checksum = "adb9e6ca4f869e1180728b7950e35922a7fc6397f7b641499e8f3ef06e50dc83"
 [[package]]
 name = "vnoi"
 version = "0.1.0"
+dependencies = [
+ "proconio",
+]
 
 [[package]]
 name = "wasi"
