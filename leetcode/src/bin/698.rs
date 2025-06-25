@@ -77,11 +77,12 @@ impl Solution {
             return res;
         }
         for i in 0..n {
-            if mask & (1 << i) == 0 && curr_sum + nums[i] <= target {
-                if Self::dfs(nums, target, k, curr_sum + nums[i], mask | (1 << i), memo) {
-                    memo[mask] = Some(true);
-                    return true;
-                }
+            if mask & (1 << i) == 0
+                && curr_sum + nums[i] <= target
+                && Self::dfs(nums, target, k, curr_sum + nums[i], mask | (1 << i), memo)
+            {
+                memo[mask] = Some(true);
+                return true;
             }
         }
         memo[mask] = Some(false);

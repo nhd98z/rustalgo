@@ -7,12 +7,10 @@ impl Solution {
         for &c in s.as_bytes() {
             if c == b'b' {
                 count_b += 1;
+            } else if res + 1 < count_b {
+                res += 1;
             } else {
-                if res + 1 < count_b {
-                    res += 1;
-                } else {
-                    res = count_b;
-                }
+                res = count_b;
             }
         }
         res

@@ -50,8 +50,8 @@ impl Solution {
             }
             let mut res = 0;
             for i in (1..n + 1).rev() {
-                if mask & (1 << i - 1) == 0 && (i % pos == 0 || pos % i == 0) {
-                    res += dfs(mask | (1 << i - 1), pos - 1, n, memo);
+                if mask & (1 << (i - 1)) == 0 && (i % pos == 0 || pos % i == 0) {
+                    res += dfs(mask | (1 << (i - 1)), pos - 1, n, memo);
                 }
             }
             memo.insert((mask, pos), res);
