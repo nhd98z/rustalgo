@@ -90,14 +90,14 @@ macro_rules! read_line {
 }
 
 fn main() {
-    let n: usize = read!(usize);
-    let m: usize = read!(usize);
-    let s: String = read!(String);
+    let n = read!(usize);
+    let m = read!(usize);
+    let s = read!(String);
     println!("n = {}, m = {}, s = {}", n, m, s);
 
-    let v: Vec<usize> = read_arr!(usize);
+    let v = read_arr!(usize);
     println!("read_arr → v={:?}", v);
 
-    let line: String = read_line!();
+    let line = read_line!();
     println!("readline → {}", line);
 }
