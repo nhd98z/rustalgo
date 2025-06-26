@@ -46,6 +46,6 @@
 // [x] https://leetcode.com/problems/parallel-courses-iii/description/ (DAG và tối ưu)
 // [x] https://leetcode.com/problems/critical-connections-in-a-network/description/ (Cầu trong đồ thị)
 // [x] https://wiki.vnoi.info/algo/graph-theory/flow (Lý thuyết về Max flow)
-// [] https://oj.vnoi.info/problem/flow1 (Bài mẫu để xử lý vấn đề Max flow)
+// [x] https://oj.vnoi.info/problem/flow1 (Bài mẫu để xử lý vấn đề Max flow)
 
 fn main() {}
