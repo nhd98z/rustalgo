@@ -21,8 +21,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::mincost_tickets(vec![1, 4, 6, 7, 8, 20], vec![2, 7, 15]),
-        11
-    );
+    assert_eq!(Solution::mincost_tickets(vec![1, 4, 6, 7, 8, 20], vec![2, 7, 15]), 11);
 }

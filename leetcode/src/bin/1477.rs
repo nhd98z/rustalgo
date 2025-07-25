@@ -29,11 +29,7 @@ impl Solution {
             }
         }
 
-        if res == i32::MAX {
-            -1
-        } else {
-            res
-        }
+        if res == i32::MAX { -1 } else { res }
     }
 
     pub fn min_sum_of_lengths(arr: Vec<i32>, target: i32) -> i32 {
@@ -86,11 +82,7 @@ impl Solution {
             }
             result = min(result, best_right + f[i - 1]);
         }
-        if result != inf {
-            result
-        } else {
-            -1
-        }
+        if result != inf { result } else { -1 }
     }
 }
 

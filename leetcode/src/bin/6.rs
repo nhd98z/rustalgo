@@ -24,12 +24,6 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::convert("PAYPALISHIRING".to_string(), 3),
-        "PAHNAPLSIIGYIR".to_string()
-    );
-    assert_eq!(
-        Solution::convert("PAYPALISHIRING".to_string(), 4),
-        "PINALSIGYAHRPI".to_string()
-    );
+    assert_eq!(Solution::convert("PAYPALISHIRING".to_string(), 3), "PAHNAPLSIIGYIR".to_string());
+    assert_eq!(Solution::convert("PAYPALISHIRING".to_string(), 4), "PINALSIGYAHRPI".to_string());
 }

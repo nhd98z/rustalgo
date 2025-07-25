@@ -55,14 +55,7 @@ impl Solution {
         Self::dfs(&nums, target, k, 0, 0, &mut memo)
     }
 
-    fn dfs(
-        nums: &[i32],
-        target: i32,
-        k: i32,
-        curr_sum: i32,
-        mask: usize,
-        memo: &mut [Option<bool>],
-    ) -> bool {
+    fn dfs(nums: &[i32], target: i32, k: i32, curr_sum: i32, mask: usize, memo: &mut [Option<bool>]) -> bool {
         let n = nums.len();
         if k == 1 {
             memo[mask] = Some(true);
@@ -77,10 +70,7 @@ impl Solution {
             return res;
         }
         for i in 0..n {
-            if mask & (1 << i) == 0
-                && curr_sum + nums[i] <= target
-                && Self::dfs(nums, target, k, curr_sum + nums[i], mask | (1 << i), memo)
-            {
+            if mask & (1 << i) == 0 && curr_sum + nums[i] <= target && Self::dfs(nums, target, k, curr_sum + nums[i], mask | (1 << i), memo) {
                 memo[mask] = Some(true);
                 return true;
             }
@@ -93,10 +83,7 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::can_partition_k_subsets(vec![4, 3, 2, 3, 5, 2, 1], 4),
-        true
-    );
+    assert_eq!(Solution::can_partition_k_subsets(vec![4, 3, 2, 3, 5, 2, 1], 4), true);
 
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
     for _ in 0..10000 {

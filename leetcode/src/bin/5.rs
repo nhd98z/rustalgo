@@ -36,28 +36,10 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::longest_palindrome("babad".to_string()),
-        "bab".to_string()
-    );
-    assert_eq!(
-        Solution::longest_palindrome("cbbd".to_string()),
-        "bb".to_string()
-    );
-    assert_eq!(
-        Solution::longest_palindrome("a".to_string()),
-        "a".to_string()
-    );
-    assert_eq!(
-        Solution::longest_palindrome("aa".to_string()),
-        "aa".to_string()
-    );
-    assert_eq!(
-        Solution::longest_palindrome("aab".to_string()),
-        "aa".to_string()
-    );
-    assert_eq!(
-        Solution::longest_palindrome("aba".to_string()),
-        "aba".to_string()
-    );
+    assert_eq!(Solution::longest_palindrome("babad".to_string()), "bab".to_string());
+    assert_eq!(Solution::longest_palindrome("cbbd".to_string()), "bb".to_string());
+    assert_eq!(Solution::longest_palindrome("a".to_string()), "a".to_string());
+    assert_eq!(Solution::longest_palindrome("aa".to_string()), "aa".to_string());
+    assert_eq!(Solution::longest_palindrome("aab".to_string()), "aa".to_string());
+    assert_eq!(Solution::longest_palindrome("aba".to_string()), "aba".to_string());
 }

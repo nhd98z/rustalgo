@@ -14,10 +14,7 @@ impl ListNode {
     }
 }
 impl Solution {
-    pub fn merge_two_lists(
-        list1: Option<Box<ListNode>>,
-        list2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
+    pub fn merge_two_lists(list1: Option<Box<ListNode>>, list2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut list1 = list1;
         let mut list2 = list2;
         let mut head = Some(Box::new(ListNode::new(0)));

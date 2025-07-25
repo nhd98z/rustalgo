@@ -27,6 +27,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    unsafe { std::env::set_var("RUST_BACKTRACE", "1"); }
+    unsafe {
+        std::env::set_var("RUST_BACKTRACE", "1");
+    }
     assert_eq!(Solution::divide_array(vec![3, 2, 3, 2, 2, 2]), true);
 }

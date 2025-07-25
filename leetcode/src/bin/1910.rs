@@ -15,12 +15,6 @@ fn main() {
         Solution::remove_occurrences("daabcbaabcbc".to_string(), "abc".to_string()),
         "dab".to_string()
     );
-    assert_eq!(
-        Solution::remove_occurrences("axxxxyyyyb".to_string(), "xy".to_string()),
-        "ab".to_string()
-    );
-    assert_eq!(
-        Solution::remove_occurrences("aaa".to_string(), "a".to_string()),
-        "".to_string()
-    );
+    assert_eq!(Solution::remove_occurrences("axxxxyyyyb".to_string(), "xy".to_string()), "ab".to_string());
+    assert_eq!(Solution::remove_occurrences("aaa".to_string(), "a".to_string()), "".to_string());
 }

@@ -31,24 +31,12 @@ impl SegmentTree {
         self.tree[node] = cmp::max(self.tree[node_l], self.tree[node_r]);
     }
 
-    fn find_most_left_greater(
-        &self,
-        node: usize,
-        l: usize,
-        r: usize,
-        ql: usize,
-        qr: usize,
-        target: usize,
-    ) -> Option<usize> {
+    fn find_most_left_greater(&self, node: usize, l: usize, r: usize, ql: usize, qr: usize, target: usize) -> Option<usize> {
         if qr < l || ql > r {
             return None;
         }
         if l == r {
-            return if self.tree[node] > target {
-                Some(l)
-            } else {
-                None
-            };
+            return if self.tree[node] > target { Some(l) } else { None };
         }
         if self.tree[node] <= target {
             return None;
@@ -82,9 +70,7 @@ impl Solution {
             }
             let from_index = cmp::max(left, right);
             let from_height = cmp::max(heights[left], heights[right]);
-            if let Some(result) =
-                st.find_most_left_greater(0, 0, n - 1, from_index + 1, n - 1, from_height as _)
-            {
+            if let Some(result) = st.find_most_left_greater(0, 0, n - 1, from_index + 1, n - 1, from_height as _) {
                 ans.push(result as _);
             } else {
                 ans.push(-1);
@@ -98,10 +84,7 @@ struct Solution;
 
 fn main() {
     assert_eq!(
-        Solution::leftmost_building_queries(
-            vec![6, 4, 8, 5, 2, 7],
-            vec![vec![0, 1], vec![0, 3], vec![2, 4], vec![3, 4], vec![2, 2]]
-        ),
+        Solution::leftmost_building_queries(vec![6, 4, 8, 5, 2, 7], vec![vec![0, 1], vec![0, 3], vec![2, 4], vec![3, 4], vec![2, 2]]),
         vec![2, 5, -1, 5, 2]
     );
     assert_eq!(
@@ -111,8 +94,5 @@ fn main() {
         ),
         vec![7, 6, -1, 4, 6]
     );
-    assert_eq!(
-        Solution::leftmost_building_queries(vec![1, 2, 1, 2, 1, 2], vec![vec![0, 2]]),
-        vec![3]
-    );
+    assert_eq!(Solution::leftmost_building_queries(vec![1, 2, 1, 2, 1, 2], vec![vec![0, 2]]), vec![3]);
 }

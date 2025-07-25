@@ -8,11 +8,7 @@ impl Solution {
             for j in 0..b.len() {
                 let prev = curr;
                 curr = dp[j + 1];
-                dp[j + 1] = if a[i] == b[j] {
-                    prev + 1
-                } else {
-                    i32::max(dp[j], dp[j + 1])
-                };
+                dp[j + 1] = if a[i] == b[j] { prev + 1 } else { i32::max(dp[j], dp[j + 1]) };
             }
         }
         dp[b.len()]
@@ -42,19 +38,12 @@ fn main() {
     assert_eq!(Solution::longest_common_subsequence("abcde".to_string(), "ace".to_string()), 3);
     assert_eq!(Solution::longest_common_subsequence("abc".to_string(), "abc".to_string()), 3);
     assert_eq!(Solution::longest_common_subsequence("abc".to_string(), "def".to_string()), 0);
-    assert_eq!(
-        Solution::longest_common_subsequence("abcba".to_string(), "abcbcba".to_string()),
-        5
-    );
+    assert_eq!(Solution::longest_common_subsequence("abcba".to_string(), "abcbcba".to_string()), 5);
     assert_eq!(Solution::longest_common_subsequence("bsbininm".to_string(), "jmjkbkjkv".to_string()), 1);
-
 
     assert_eq!(Solution::longest_common_subsequence_2("abcde".to_string(), "ace".to_string()), 3);
     assert_eq!(Solution::longest_common_subsequence_2("abc".to_string(), "abc".to_string()), 3);
     assert_eq!(Solution::longest_common_subsequence_2("abc".to_string(), "def".to_string()), 0);
-    assert_eq!(
-        Solution::longest_common_subsequence_2("abcba".to_string(), "abcbcba".to_string()),
-        5
-    );
+    assert_eq!(Solution::longest_common_subsequence_2("abcba".to_string(), "abcbcba".to_string()), 5);
     assert_eq!(Solution::longest_common_subsequence_2("bsbininm".to_string(), "jmjkbkjkv".to_string()), 1);
 }

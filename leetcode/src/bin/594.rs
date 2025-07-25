@@ -7,10 +7,7 @@ impl Solution {
             map.insert(num, map.get(&num).unwrap_or(&0) + 1);
         });
         map.iter()
-            .map(|(&num, &count)| {
-                map.get(&(num + 1))
-                    .map_or(0, |&next_count| count + next_count)
-            })
+            .map(|(&num, &count)| map.get(&(num + 1)).map_or(0, |&next_count| count + next_count))
             .max()
             .unwrap_or(0)
     }

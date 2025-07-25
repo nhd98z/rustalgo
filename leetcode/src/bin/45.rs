@@ -23,8 +23,5 @@ struct Solution;
 fn main() {
     assert_eq!(Solution::jump(vec![2, 3, 1, 1, 4]), 2);
     assert_eq!(Solution::jump(vec![1, 2, 1, 1, 1]), 3);
-    assert_eq!(
-        Solution::jump(vec![5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8]),
-        2
-    );
+    assert_eq!(Solution::jump(vec![5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8]), 2);
 }

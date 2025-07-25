@@ -6,11 +6,7 @@ impl Solution {
             .enumerate()
             .map(|(i, num)| {
                 // Get the i-th character and flip it
-                if num.chars().nth(i).unwrap() == '0' {
-                    '1'
-                } else {
-                    '0'
-                }
+                if num.chars().nth(i).unwrap() == '0' { '1' } else { '0' }
             })
             .collect()
     }
@@ -19,8 +15,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::find_different_binary_string(vec!["01".to_string(), "10".to_string()]),
-        "11"
-    );
+    assert_eq!(Solution::find_different_binary_string(vec!["01".to_string(), "10".to_string()]), "11");
 }

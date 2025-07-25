@@ -41,8 +41,5 @@ fn main() {
     unsafe {
         std::env::set_var("RUST_BACKTRACE", "1");
     }
-    assert_eq!(
-        Solution::three_sum(vec![-1, 0, 1, 2, -1, -4]),
-        vec![vec![-1, -1, 2], vec![-1, 0, 1]]
-    );
+    assert_eq!(Solution::three_sum(vec![-1, 0, 1, 2, -1, -4]), vec![vec![-1, -1, 2], vec![-1, 0, 1]]);
 }

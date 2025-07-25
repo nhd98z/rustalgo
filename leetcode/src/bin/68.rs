@@ -25,10 +25,7 @@ impl Solution {
             let mut curr_len = 0; // Current line length including spaces
 
             // Add words to the current line as long as they fit within max_width
-            while j < n
-                && curr_len + words[j].len() + (if curr_len > 0 { 1 } else { 0 })
-                    <= max_width as usize
-            {
+            while j < n && curr_len + words[j].len() + (if curr_len > 0 { 1 } else { 0 }) <= max_width as usize {
                 if curr_len > 0 {
                     curr_len += 1; // Add space between words
                 }
@@ -105,21 +102,9 @@ fn main() {
     }
     assert_eq!(
         Solution::full_justify(
-            vec![
-                s!("This"),
-                s!("is"),
-                s!("an"),
-                s!("example"),
-                s!("of"),
-                s!("text"),
-                s!("justification.")
-            ],
+            vec![s!("This"), s!("is"), s!("an"), s!("example"), s!("of"), s!("text"), s!("justification.")],
             16
         ),
-        vec![
-            s!("This    is    an"),
-            s!("example  of text"),
-            s!("justification.  ")
-        ]
+        vec![s!("This    is    an"), s!("example  of text"), s!("justification.  ")]
     );
 }

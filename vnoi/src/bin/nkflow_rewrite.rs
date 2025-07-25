@@ -53,9 +53,7 @@ macro_rules! read_arr {
     ($t:ty) => {{
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.split_whitespace()
-            .map(|w| w.parse::<$t>().unwrap())
-            .collect::<Vec<$t>>()
+        line.split_whitespace().map(|w| w.parse::<$t>().unwrap()).collect::<Vec<$t>>()
     }};
     ($t:ty, $d:expr) => {{
         let mut line = String::new();
@@ -78,9 +76,7 @@ macro_rules! read_line {
     ($t:ty) => {{
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.trim_end_matches(&['\r', '\n'][..])
-            .parse::<$t>()
-            .unwrap()
+        line.trim_end_matches(&['\r', '\n'][..]).parse::<$t>().unwrap()
     }};
     ($t:ty, $d:expr) => {{
         let mut line = String::new();
@@ -111,16 +107,8 @@ fn main() {
         v -= 1;
         let rev_u = g[u].len();
         let rev_v = g[v].len();
-        g[u].push(Edge {
-            to: v,
-            cap: c,
-            rev: rev_v,
-        });
-        g[v].push(Edge {
-            to: u,
-            cap: 0,
-            rev: rev_u,
-        });
+        g[u].push(Edge { to: v, cap: c, rev: rev_v });
+        g[v].push(Edge { to: u, cap: 0, rev: rev_u });
     }
 
     let mut max_flow = 0;

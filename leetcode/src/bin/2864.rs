@@ -16,8 +16,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::maximum_odd_binary_number("010".to_string()),
-        "001".to_string()
-    );
+    assert_eq!(Solution::maximum_odd_binary_number("010".to_string()), "001".to_string());
 }

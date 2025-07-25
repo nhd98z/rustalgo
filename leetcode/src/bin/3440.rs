@@ -37,17 +37,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::max_free_time(99, vec![3, 16, 97], vec![12, 66, 98]),
-        35
-    );
+    assert_eq!(Solution::max_free_time(99, vec![3, 16, 97], vec![12, 66, 98]), 35);
     assert_eq!(Solution::max_free_time(5, vec![1, 3], vec![2, 5]), 2);
-    assert_eq!(
-        Solution::max_free_time(10, vec![0, 3, 7, 9], vec![1, 4, 8, 10]),
-        6
-    );
-    assert_eq!(
-        Solution::max_free_time(5, vec![0, 1, 2, 3, 4], vec![1, 2, 3, 4, 5]),
-        0
-    );
+    assert_eq!(Solution::max_free_time(10, vec![0, 3, 7, 9], vec![1, 4, 8, 10]), 6);
+    assert_eq!(Solution::max_free_time(5, vec![0, 1, 2, 3, 4], vec![1, 2, 3, 4, 5]), 0);
 }

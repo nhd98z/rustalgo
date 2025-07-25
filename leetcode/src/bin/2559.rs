@@ -32,13 +32,7 @@ struct Solution;
 fn main() {
     assert_eq!(
         Solution::vowel_strings(
-            vec![
-                "aba".to_string(),
-                "bcb".to_string(),
-                "ece".to_string(),
-                "aa".to_string(),
-                "e".to_string()
-            ],
+            vec!["aba".to_string(), "bcb".to_string(), "ece".to_string(), "aa".to_string(), "e".to_string()],
             vec![vec![0, 2], vec![1, 4], vec![1, 1]]
         ),
         [2, 3, 0]

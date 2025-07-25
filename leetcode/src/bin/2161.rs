@@ -49,22 +49,13 @@ fn main() {
     assert_eq!(Solution::pivot_array(vec![5, 6, 7], 4), vec![5, 6, 7]);
 
     // Negative numbers
-    assert_eq!(
-        Solution::pivot_array(vec![-5, -3, -1, -2, -4], -3),
-        vec![-5, -4, -3, -1, -2]
-    );
+    assert_eq!(Solution::pivot_array(vec![-5, -3, -1, -2, -4], -3), vec![-5, -4, -3, -1, -2]);
 
     // Mix of positive and negative
-    assert_eq!(
-        Solution::pivot_array(vec![-2, 0, 2, -1, 0, 1], 0),
-        vec![-2, -1, 0, 0, 2, 1]
-    );
+    assert_eq!(Solution::pivot_array(vec![-2, 0, 2, -1, 0, 1], 0), vec![-2, -1, 0, 0, 2, 1]);
 
     // Multiple duplicates including pivot
-    assert_eq!(
-        Solution::pivot_array(vec![2, 2, 1, 3, 2, 1, 2], 2),
-        vec![1, 1, 2, 2, 2, 2, 3]
-    );
+    assert_eq!(Solution::pivot_array(vec![2, 2, 1, 3, 2, 1, 2], 2), vec![1, 1, 2, 2, 2, 2, 3]);
 
     // Large range of numbers
     assert_eq!(

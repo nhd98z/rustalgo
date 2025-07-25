@@ -10,8 +10,7 @@ impl Solution {
                 }
                 return 0;
             }
-            find(&nums, target, sum - &nums[pos], pos + 1)
-                + find(&nums, target, sum + &nums[pos], pos + 1)
+            find(&nums, target, sum - &nums[pos], pos + 1) + find(&nums, target, sum + &nums[pos], pos + 1)
         }
         find(&nums, target, 0, 0)
     }
@@ -26,11 +25,7 @@ impl Solution {
             dp[0] = 1;
             for i in 1..=nums.len() {
                 for j in (0..=limit).rev() {
-                    dp[j] += if j >= nums[i - 1] as usize {
-                        dp[j - nums[i - 1] as usize]
-                    } else {
-                        0
-                    }
+                    dp[j] += if j >= nums[i - 1] as usize { dp[j - nums[i - 1] as usize] } else { 0 }
                 }
             }
             dp[limit]

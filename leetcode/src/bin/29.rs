@@ -14,16 +14,8 @@ impl Solution {
         if dividend == i32::MIN && dividend % divisor == 0 {
             quotient += 1;
         }
-        let mut dividend = if dividend == i32::MIN {
-            i32::MAX
-        } else {
-            dividend.abs()
-        };
-        let divisor = if divisor == i32::MIN {
-            i32::MAX
-        } else {
-            divisor.abs()
-        };
+        let mut dividend = if dividend == i32::MIN { i32::MAX } else { dividend.abs() };
+        let divisor = if divisor == i32::MIN { i32::MAX } else { divisor.abs() };
         loop {
             let mut exp = 0;
             while 0 < (divisor << exp) && (divisor << exp) <= dividend {
@@ -35,11 +27,7 @@ impl Solution {
             quotient += 1 << (exp - 1);
             dividend -= divisor << (exp - 1);
         }
-        if negative {
-            -quotient
-        } else {
-            quotient
-        }
+        if negative { -quotient } else { quotient }
     }
 }
 

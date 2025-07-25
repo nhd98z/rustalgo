@@ -32,9 +32,9 @@ impl Solution {
         if nums.len() < 2 {
             return 0;
         }
-        let (min, max) = nums.iter().fold((i32::MAX, i32::MIN), |(min, max), &num| {
-            (i32::min(min, num), i32::max(max, num))
-        });
+        let (min, max) = nums
+            .iter()
+            .fold((i32::MAX, i32::MIN), |(min, max), &num| (i32::min(min, num), i32::max(max, num)));
         if min == max {
             return 0;
         }

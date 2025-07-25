@@ -30,15 +30,7 @@ impl SegmentTree {
         self.tree[node] = i32::max(self.tree[node_left], self.tree[node_right]);
     }
 
-    fn find_first_greater(
-        &self,
-        node: usize,
-        l: usize,
-        r: usize,
-        ql: usize,
-        qr: usize,
-        target: i32,
-    ) -> i32 {
+    fn find_first_greater(&self, node: usize, l: usize, r: usize, ql: usize, qr: usize, target: i32) -> i32 {
         if qr < l || ql > r {
             return -1;
         }
@@ -126,10 +118,7 @@ struct Solution;
 
 fn main() {
     assert_eq!(
-        Solution::leftmost_building_queries(
-            vec![6, 4, 8, 5, 2, 7],
-            vec![vec![0, 1], vec![0, 3], vec![2, 4], vec![3, 4], vec![2, 2]]
-        ),
+        Solution::leftmost_building_queries(vec![6, 4, 8, 5, 2, 7], vec![vec![0, 1], vec![0, 3], vec![2, 4], vec![3, 4], vec![2, 2]]),
         vec![2, 5, -1, 5, 2]
     );
     assert_eq!(
@@ -139,8 +128,5 @@ fn main() {
         ),
         vec![7, 6, -1, 4, 6]
     );
-    assert_eq!(
-        Solution::leftmost_building_queries(vec![1, 2, 1, 2, 1, 2], vec![vec![0, 2]]),
-        vec![3]
-    );
+    assert_eq!(Solution::leftmost_building_queries(vec![1, 2, 1, 2, 1, 2], vec![vec![0, 2]]), vec![3]);
 }

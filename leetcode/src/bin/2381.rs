@@ -52,18 +52,12 @@ struct Solution;
 
 fn main() {
     assert_eq!(
-        Solution::shifting_letters(
-            "abc".to_string(),
-            vec![vec![0, 1, 0], vec![1, 2, 1], vec![0, 2, 1]]
-        ),
+        Solution::shifting_letters("abc".to_string(), vec![vec![0, 1, 0], vec![1, 2, 1], vec![0, 2, 1]]),
         "ace".to_string()
     );
 
     assert_eq!(
-        Solution::shifting_letters_rusty(
-            "abc".to_string(),
-            vec![vec![0, 1, 0], vec![1, 2, 1], vec![0, 2, 1]]
-        ),
+        Solution::shifting_letters_rusty("abc".to_string(), vec![vec![0, 1, 0], vec![1, 2, 1], vec![0, 2, 1]]),
         "ace".to_string()
     );
 }

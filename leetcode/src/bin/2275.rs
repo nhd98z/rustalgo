@@ -17,8 +17,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::largest_combination(vec![16, 17, 71, 62, 12, 24, 14]),
-        4
-    );
+    assert_eq!(Solution::largest_combination(vec![16, 17, 71, 62, 12, 24, 14]), 4);
 }

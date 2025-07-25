@@ -22,8 +22,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::final_prices(vec![8, 4, 6, 2, 3]),
-        vec![4, 2, 4, 2, 3]
-    );
+    assert_eq!(Solution::final_prices(vec![8, 4, 6, 2, 3]), vec![4, 2, 4, 2, 3]);
 }

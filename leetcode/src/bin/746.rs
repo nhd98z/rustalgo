@@ -29,8 +29,5 @@ struct Solution;
 
 fn main() {
     assert_eq!(Solution::min_cost_climbing_stairs(vec![10, 15, 20]), 15);
-    assert_eq!(
-        Solution::min_cost_climbing_stairs(vec![1, 100, 1, 1, 1, 100, 1, 1, 100, 1]),
-        6
-    );
+    assert_eq!(Solution::min_cost_climbing_stairs(vec![1, 100, 1, 1, 1, 100, 1, 1, 100, 1]), 6);
 }

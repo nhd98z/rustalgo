@@ -16,8 +16,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::max_distance(vec![vec![1, 2, 3], vec![4, 5], vec![1, 2, 3]]),
-        4
-    );
+    assert_eq!(Solution::max_distance(vec![vec![1, 2, 3], vec![4, 5], vec![1, 2, 3]]), 4);
 }

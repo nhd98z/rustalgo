@@ -12,6 +12,6 @@ struct Solution;
 fn main() {
     let mut s = vec!['h', 'e', 'l', 'l', 'o'];
     Solution::reverse_string(&mut s);
-    
+
     assert_eq!(s, vec!['o', 'l', 'l', 'e', 'h']);
 }

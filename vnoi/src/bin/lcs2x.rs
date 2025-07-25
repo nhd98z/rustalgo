@@ -107,10 +107,7 @@ fn solve<R: BufRead>(reader: &mut R) {
 
 fn get_reader() -> Box<dyn BufRead> {
     if env::var("USER").unwrap_or_default() == "nhd98z" {
-        let path = format!(
-            "vnoi/src/bin/{}.txt",
-            Path::new(file!()).file_stem().unwrap().to_str().unwrap()
-        );
+        let path = format!("vnoi/src/bin/{}.txt", Path::new(file!()).file_stem().unwrap().to_str().unwrap());
         match File::open(&path) {
             Ok(file) => Box::new(BufReader::new(file)),
             Err(e) if e.kind() == io::ErrorKind::NotFound => {

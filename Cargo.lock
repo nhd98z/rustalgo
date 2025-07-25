@@ -19,6 +19,13 @@ name = "dsa"
 version = "0.1.0"
 
 [[package]]
+name = "euler"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"

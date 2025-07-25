@@ -8,9 +8,7 @@ struct MyHashMap {
  */
 impl MyHashMap {
     fn new() -> Self {
-        MyHashMap {
-            items: [-1; 1000000 + 1],
-        }
+        MyHashMap { items: [-1; 1000000 + 1] }
     }
 
     fn put(&mut self, key: i32, value: i32) {

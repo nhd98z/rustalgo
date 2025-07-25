@@ -57,14 +57,8 @@ struct Solution;
 
 fn main() {
     assert_eq!(
-        Solution::max_points(
-            vec![vec![1, 2, 3], vec![2, 5, 7], vec![3, 5, 1]],
-            vec![5, 6, 2]
-        ),
+        Solution::max_points(vec![vec![1, 2, 3], vec![2, 5, 7], vec![3, 5, 1]], vec![5, 6, 2]),
         vec![5, 8, 1]
     );
-    assert_eq!(
-        Solution::max_points(vec![vec![5, 2, 1], vec![1, 1, 2]], vec![3]),
-        vec![0]
-    );
+    assert_eq!(Solution::max_points(vec![vec![5, 2, 1], vec![1, 1, 2]], vec![3]), vec![0]);
 }
