@@ -77,7 +77,15 @@ impl Solution {
             }
         }
 
-        fn dfs(adj: &Vec<Vec<usize>>, disc: &mut Vec<usize>, low: &mut Vec<usize>, time: &mut usize, res: &mut Vec<Vec<usize>>, u: usize, parent: usize) {
+        fn dfs(
+            adj: &Vec<Vec<usize>>,
+            disc: &mut Vec<usize>,
+            low: &mut Vec<usize>,
+            time: &mut usize,
+            res: &mut Vec<Vec<usize>>,
+            u: usize,
+            parent: usize,
+        ) {
             disc[u] = *time;
             low[u] = *time;
             *time += 1;
@@ -103,15 +111,30 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::critical_connections_stupid(4, vec![vec![0, 1], vec![1, 2], vec![2, 0], vec![1, 3]]), vec![vec![1, 3]]);
+    assert_eq!(
+        Solution::critical_connections_stupid(4, vec![vec![0, 1], vec![1, 2], vec![2, 0], vec![1, 3]]),
+        vec![vec![1, 3]]
+    );
 
-    assert_eq!(Solution::critical_connections_stupid(2, vec![vec![0, 1]]), vec![vec![0, 1]]);
+    assert_eq!(
+        Solution::critical_connections_stupid(2, vec![vec![0, 1]]),
+        vec![vec![0, 1]]
+    );
 
-    assert_eq!(Solution::critical_connections_stupid(3, vec![vec![0, 1], vec![1, 2], vec![2, 0]]), Vec::<Vec<i32>>::new());
+    assert_eq!(
+        Solution::critical_connections_stupid(3, vec![vec![0, 1], vec![1, 2], vec![2, 0]]),
+        Vec::<Vec<i32>>::new()
+    );
 
-    assert_eq!(Solution::critical_connections(4, vec![vec![0, 1], vec![1, 2], vec![2, 0], vec![1, 3]]), vec![vec![1, 3]]);
+    assert_eq!(
+        Solution::critical_connections(4, vec![vec![0, 1], vec![1, 2], vec![2, 0], vec![1, 3]]),
+        vec![vec![1, 3]]
+    );
 
     assert_eq!(Solution::critical_connections(2, vec![vec![0, 1]]), vec![vec![0, 1]]);
 
-    assert_eq!(Solution::critical_connections(3, vec![vec![0, 1], vec![1, 2], vec![2, 0]]), Vec::<Vec<i32>>::new());
+    assert_eq!(
+        Solution::critical_connections(3, vec![vec![0, 1], vec![1, 2], vec![2, 0]]),
+        Vec::<Vec<i32>>::new()
+    );
 }

@@ -13,8 +13,8 @@ impl Solution {
 
         // Priority queue for Dijkstra's algorithm
         // Min-heap of (distance, node) pairs
-        use std::collections::BinaryHeap;
         use std::cmp::Reverse;
+        use std::collections::BinaryHeap;
 
         let mut pq = BinaryHeap::new();
         pq.push(Reverse((0, k as usize)));
@@ -49,6 +49,11 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    unsafe { std::env::set_var("RUST_BACKTRACE", "1"); }
-    assert_eq!(Solution::network_delay_time(vec![vec![2, 1, 1], vec![2, 3, 1], vec![3, 4, 1]], 4, 2), 2);
+    unsafe {
+        std::env::set_var("RUST_BACKTRACE", "1");
+    }
+    assert_eq!(
+        Solution::network_delay_time(vec![vec![2, 1, 1], vec![2, 3, 1], vec![3, 4, 1]], 4, 2),
+        2
+    );
 }

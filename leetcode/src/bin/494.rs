@@ -10,8 +10,7 @@ impl Solution {
                 }
                 return 0;
             }
-            find(&nums, target, sum - &nums[pos], pos + 1)
-                + find(&nums, target, sum + &nums[pos], pos + 1)
+            find(&nums, target, sum - &nums[pos], pos + 1) + find(&nums, target, sum + &nums[pos], pos + 1)
         }
         find(&nums, target, 0, 0)
     }

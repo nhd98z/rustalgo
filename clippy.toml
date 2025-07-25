@@ -1,1 +1,1 @@
-disallowed-lints = ["needless_range_loop"]
+needless_range_loop = "allow"

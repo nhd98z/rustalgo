@@ -30,7 +30,7 @@ impl Solution {
                 res[i] = prefix_max[left - 1];
             }
         }
-        
+
         res
     }
 }
@@ -45,8 +45,5 @@ fn main() {
         ),
         vec![2, 4, 5, 5, 6, 6]
     );
-    assert_eq!(
-        Solution::maximum_beauty(vec![vec![10, 1000]], vec![5]),
-        vec![0]
-    );
+    assert_eq!(Solution::maximum_beauty(vec![vec![10, 1000]], vec![5]), vec![0]);
 }

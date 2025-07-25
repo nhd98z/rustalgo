@@ -1,4 +1,4 @@
 [workspace]
 resolver = "2"
 
-members = ["dsa", "leetcode", "vnoi"]
+members = ["dsa", "leetcode", "vnoi", "euler"]

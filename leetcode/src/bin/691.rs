@@ -22,11 +22,7 @@ impl Solution {
         // Call the recursive helper function
         let res = Self::helper(&mut memo, &sticker_maps, &target);
 
-        if res == i32::MAX {
-            -1
-        } else {
-            res
-        }
+        if res == i32::MAX { -1 } else { res }
     }
 
     fn helper(memo: &mut HashMap<String, i32>, sticker_maps: &[[i32; 26]], target: &str) -> i32 {
@@ -186,22 +182,14 @@ struct Solution;
 fn main() {
     assert_eq!(
         Solution::min_stickers_stupid(
-            vec![
-                "with".to_string(),
-                "example".to_string(),
-                "science".to_string()
-            ],
+            vec!["with".to_string(), "example".to_string(), "science".to_string()],
             "thehat".to_string()
         ),
         3
     );
     assert_eq!(
         Solution::min_stickers(
-            vec![
-                "with".to_string(),
-                "example".to_string(),
-                "science".to_string()
-            ],
+            vec!["with".to_string(), "example".to_string(), "science".to_string()],
             "thehat".to_string()
         ),
         3

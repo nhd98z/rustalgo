@@ -31,17 +31,12 @@ fn get_reader() -> Box<dyn std::io::BufRead> {
     if std::env::var("USER").unwrap_or_default() == "nhd98z" {
         let path = format!(
             "vnoi/src/bin/{}.txt",
-            std::path::Path::new(file!())
-                .file_stem()
-                .unwrap()
-                .to_str()
-                .unwrap()
+            std::path::Path::new(file!()).file_stem().unwrap().to_str().unwrap()
         );
         match std::fs::File::open(&path) {
             Ok(file) => Box::new(std::io::BufReader::new(file)),
             Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
-                std::fs::File::create(&path)
-                    .unwrap_or_else(|_| panic!("Failed to create input file: {}", &path));
+                std::fs::File::create(&path).unwrap_or_else(|_| panic!("Failed to create input file: {}", &path));
                 panic!("Input file not found. An empty file has been created.");
             }
             Err(e) => {

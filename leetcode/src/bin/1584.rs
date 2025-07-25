@@ -62,13 +62,7 @@ struct Solution;
 
 fn main() {
     assert_eq!(
-        Solution::min_cost_connect_points(vec![
-            vec![0, 0],
-            vec![2, 2],
-            vec![3, 10],
-            vec![5, 2],
-            vec![7, 0]
-        ]),
+        Solution::min_cost_connect_points(vec![vec![0, 0], vec![2, 2], vec![3, 10], vec![5, 2], vec![7, 0]]),
         20
     );
 }

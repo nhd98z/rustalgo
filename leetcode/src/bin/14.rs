@@ -19,6 +19,12 @@ macro_rules! s {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::longest_common_prefix(vec![s!("flower"), s!("flow"), s!("flight")]), s!("fl"));
-    assert_eq!(Solution::longest_common_prefix(vec![s!("dog"), s!("racecar"), s!("car")]), s!(""));
+    assert_eq!(
+        Solution::longest_common_prefix(vec![s!("flower"), s!("flow"), s!("flight")]),
+        s!("fl")
+    );
+    assert_eq!(
+        Solution::longest_common_prefix(vec![s!("dog"), s!("racecar"), s!("car")]),
+        s!("")
+    );
 }

@@ -26,13 +26,7 @@ fn main() {
     assert_eq!(Solution::minimum_deletions("aa".to_string()), 0);
 
     let s: String = (0..1_000_000)
-        .map(|_| {
-            if rand::thread_rng().gen_bool(0.5) {
-                'a'
-            } else {
-                'b'
-            }
-        })
+        .map(|_| if rand::thread_rng().gen_bool(0.5) { 'a' } else { 'b' })
         .collect();
 
     let start = std::time::Instant::now();

@@ -30,15 +30,7 @@ impl SegmentTree {
         self.tree[node] = i32::max(self.tree[node_left], self.tree[node_right]);
     }
 
-    fn find_first_greater(
-        &self,
-        node: usize,
-        l: usize,
-        r: usize,
-        ql: usize,
-        qr: usize,
-        target: i32,
-    ) -> i32 {
+    fn find_first_greater(&self, node: usize, l: usize, r: usize, ql: usize, qr: usize, target: i32) -> i32 {
         if qr < l || ql > r {
             return -1;
         }

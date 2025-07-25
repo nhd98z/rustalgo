@@ -16,10 +16,11 @@ impl Solution {
     }
 }
 
-
 struct Solution;
 
 fn main() {
-    unsafe { std::env::set_var("RUST_BACKTRACE", "1"); }
+    unsafe {
+        std::env::set_var("RUST_BACKTRACE", "1");
+    }
     assert_eq!(Solution::two_sum(vec![2, 7, 11, 15], 9), vec![1, 2]);
 }

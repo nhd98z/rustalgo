@@ -77,9 +77,7 @@ macro_rules! read_line {
     ($t:ty) => {{
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.trim_end_matches(&['\r', '\n'][..])
-            .parse::<$t>()
-            .unwrap()
+        line.trim_end_matches(&['\r', '\n'][..]).parse::<$t>().unwrap()
     }};
     ($t:ty, $d:expr) => {{
         let mut line = String::new();
@@ -131,11 +129,7 @@ fn build_graph(n: usize, edges: &[(usize, usize, usize)]) -> Vec<Vec<Edge>> {
         let rev_v = graph[u].len(); // chỉ số của cạnh ngược v->u trong graph[u]
 
         // Thêm cạnh thuận u->v với khả năng thông qua cap
-        graph[u].push(Edge {
-            to: v,
-            rev: rev_u,
-            cap,
-        });
+        graph[u].push(Edge { to: v, rev: rev_u, cap });
         // Thêm cạnh ngược v->u với khả năng thông qua 0 (để hủy luồng)
         graph[v].push(Edge {
             to: u,
@@ -218,9 +212,15 @@ fn bfs(s: usize, t: usize, graph: &mut [Vec<Edge>]) -> usize {
         graph[prev][edge_idx].cap -= bottleneck;
         // Tăng khả năng thông qua của cạnh ngược (để có thể hủy luồng)
         graph[to][rev].cap += bottleneck;
-        println!("  🔄 Cập nhật: {} -> {} (còn {}), {} -> {} (thêm {})",
-            prev + 1, to + 1, graph[prev][edge_idx].cap,
-            to + 1, prev + 1, graph[to][rev].cap);
+        println!(
+            "  🔄 Cập nhật: {} -> {} (còn {}), {} -> {} (thêm {})",
+            prev + 1,
+            to + 1,
+            graph[prev][edge_idx].cap,
+            to + 1,
+            prev + 1,
+            graph[to][rev].cap
+        );
         cur = prev;
     }
 

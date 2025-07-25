@@ -22,12 +22,6 @@ fn main() {
     unsafe {
         std::env::set_var("RUST_BACKTRACE", "1");
     }
-    assert_eq!(
-        Solution::number_of_alternating_groups(vec![0, 1, 0, 1, 0], 3),
-        3
-    );
-    assert_eq!(
-        Solution::number_of_alternating_groups(vec![0, 1, 0, 0, 1, 0, 1], 6),
-        2
-    );
+    assert_eq!(Solution::number_of_alternating_groups(vec![0, 1, 0, 1, 0], 3), 3);
+    assert_eq!(Solution::number_of_alternating_groups(vec![0, 1, 0, 0, 1, 0, 1], 6), 2);
 }

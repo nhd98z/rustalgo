@@ -39,8 +39,7 @@ struct Edge {
 
 // Biến toàn cục
 // Bảng QHĐ: path_count[node][extra_delay] = số đường đi từ node đến đích
-static mut PATH_COUNT: [[i32; MAX_EXTRA_DELAY]; MAX_NODES + 1] =
-    [[-1; MAX_EXTRA_DELAY]; MAX_NODES + 1];
+static mut PATH_COUNT: [[i32; MAX_EXTRA_DELAY]; MAX_NODES + 1] = [[-1; MAX_EXTRA_DELAY]; MAX_NODES + 1];
 // Khoảng cách ngắn nhất từ mỗi nút đến đích
 static mut MIN_DISTANCE: [usize; MAX_NODES + 1] = [INFINITY_VALUE; MAX_NODES + 1];
 
@@ -103,8 +102,7 @@ unsafe fn count_paths(current_node: usize, extra_delay: i32) -> i32 {
             if next_extra_delay >= 0 {
                 // Cộng dồn số đường đi từ next_node đến đích
                 unsafe {
-                    PATH_COUNT[current_node][extra_delay as usize] +=
-                        count_paths(next_node, next_extra_delay as i32);
+                    PATH_COUNT[current_node][extra_delay as usize] += count_paths(next_node, next_extra_delay as i32);
 
                     // Giới hạn đếm để tránh tràn số
                     if PATH_COUNT[current_node][extra_delay as usize] >= MAX_COUNT_CAP as i32 {
@@ -126,10 +124,7 @@ fn main() {
     // Đọc input: số nút, số cạnh, nút đích, chỉ số K
     let mut line = String::new();
     reader.read_line(&mut line).unwrap();
-    let arr: Vec<usize> = line
-        .split_whitespace()
-        .map(|x| x.parse().unwrap())
-        .collect();
+    let arr: Vec<usize> = line.split_whitespace().map(|x| x.parse().unwrap()).collect();
 
     unsafe {
         NODE_COUNT = arr[0];
@@ -149,10 +144,7 @@ fn main() {
     for _ in 0..unsafe { EDGE_COUNT } {
         let mut line = String::new();
         reader.read_line(&mut line).unwrap();
-        let arr: Vec<usize> = line
-            .split_whitespace()
-            .map(|x| x.parse().unwrap())
-            .collect();
+        let arr: Vec<usize> = line.split_whitespace().map(|x| x.parse().unwrap()).collect();
 
         let (from_node, to_node, delay) = (arr[0], arr[1], arr[2]);
 
@@ -266,11 +258,10 @@ fn main() {
                 }
 
                 // Đếm số đường đi từ next_node đến đích với độ trễ còn lại
-                let max_extra =
-                    match remaining_delay.checked_sub(edge_delay + MIN_DISTANCE[next_node]) {
-                        Some(x) => x,
-                        None => continue,
-                    };
+                let max_extra = match remaining_delay.checked_sub(edge_delay + MIN_DISTANCE[next_node]) {
+                    Some(x) => x,
+                    None => continue,
+                };
 
                 let mut paths_through_edge = 0i32;
                 for extra in 0..=max_extra {

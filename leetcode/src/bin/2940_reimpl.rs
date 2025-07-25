@@ -44,11 +44,7 @@ impl SegmentTree {
             return None;
         }
         if l == r {
-            return if self.tree[node] > target {
-                Some(l)
-            } else {
-                None
-            };
+            return if self.tree[node] > target { Some(l) } else { None };
         }
         if self.tree[node] <= target {
             return None;
@@ -82,9 +78,7 @@ impl Solution {
             }
             let from_index = cmp::max(left, right);
             let from_height = cmp::max(heights[left], heights[right]);
-            if let Some(result) =
-                st.find_most_left_greater(0, 0, n - 1, from_index + 1, n - 1, from_height as _)
-            {
+            if let Some(result) = st.find_most_left_greater(0, 0, n - 1, from_index + 1, n - 1, from_height as _) {
                 ans.push(result as _);
             } else {
                 ans.push(-1);

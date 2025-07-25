@@ -21,9 +21,7 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    dbg!(Solution::length_of_longest_substring(
-        "abcabcbb".to_string()
-    ));
+    dbg!(Solution::length_of_longest_substring("abcabcbb".to_string()));
     dbg!(Solution::length_of_longest_substring("bbbbb".to_string()));
     dbg!(Solution::length_of_longest_substring("pwwkew".to_string()));
     dbg!(Solution::length_of_longest_substring("aab".to_string()));

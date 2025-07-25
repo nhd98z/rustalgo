@@ -7,5 +7,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::reverse_words("the sky is blue".to_string()), "blue is sky the");
+    assert_eq!(
+        Solution::reverse_words("the sky is blue".to_string()),
+        "blue is sky the"
+    );
 }

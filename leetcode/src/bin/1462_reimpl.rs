@@ -18,8 +18,14 @@ impl Solution {
         // - Độ phức tạp: O(n + m) + O(q) = O(1e2 + 1e4) + O(1e4) = O(1e4)
 
         let n = num_courses as usize;
-        let prerequisites = prerequisites.into_iter().map(|v| (v[0] as usize, v[1] as usize)).collect::<Vec<_>>();
-        let queries = queries.into_iter().map(|v| (v[0] as usize, v[1] as usize)).collect::<Vec<_>>();
+        let prerequisites = prerequisites
+            .into_iter()
+            .map(|v| (v[0] as usize, v[1] as usize))
+            .collect::<Vec<_>>();
+        let queries = queries
+            .into_iter()
+            .map(|v| (v[0] as usize, v[1] as usize))
+            .collect::<Vec<_>>();
 
         let mut graph = vec![vec![]; n];
         for (u, v) in prerequisites {
@@ -52,5 +58,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::check_if_prerequisite(2, vec![vec![1, 0]], vec![vec![0, 1], vec![1, 0]]), vec![false, true]);
+    assert_eq!(
+        Solution::check_if_prerequisite(2, vec![vec![1, 0]], vec![vec![0, 1], vec![1, 0]]),
+        vec![false, true]
+    );
 }

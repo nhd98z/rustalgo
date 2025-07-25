@@ -35,5 +35,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::minimum_time(3, vec![vec![1, 3], vec![2, 3]], vec![3, 2, 5]), 8);
+    assert_eq!(
+        Solution::minimum_time(3, vec![vec![1, 3], vec![2, 3]], vec![3, 2, 5]),
+        8
+    );
 }

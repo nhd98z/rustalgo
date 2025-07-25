@@ -21,7 +21,6 @@ impl Solution {
                             val += bit_value;
                         }
                     }
-
                 }
                 _ => {}
             }

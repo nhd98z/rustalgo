@@ -32,5 +32,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::garden_no_adj(3, vec![vec![1, 2], vec![2, 3], vec![3, 1]]), vec![1, 2, 3]);
+    assert_eq!(
+        Solution::garden_no_adj(3, vec![vec![1, 2], vec![2, 3], vec![3, 1]]),
+        vec![1, 2, 3]
+    );
 }

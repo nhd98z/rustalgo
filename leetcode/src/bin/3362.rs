@@ -8,10 +8,7 @@ impl Solution {
         let mut arr = vec![0; n + 1];
         let mut decr = 0;
         let mut idx = 0;
-        let mut queries: Vec<(usize, usize)> = queries
-            .iter()
-            .map(|q| (q[0] as usize, q[1] as usize))
-            .collect();
+        let mut queries: Vec<(usize, usize)> = queries.iter().map(|q| (q[0] as usize, q[1] as usize)).collect();
         let mut heap = BinaryHeap::new();
         queries.sort_unstable_by(|a, b| a.cmp(b));
         for i in 0..n {

@@ -58,7 +58,7 @@ fn main() {
     node2.borrow_mut().right = Some(Rc::clone(&node5));
     node3.borrow_mut().left = Some(Rc::clone(&node6));
     assert_eq!(Solution::is_complete_tree(Some(root)), true);
-    
+
     // [1,2,3,4,5,null,6]
     let root = Rc::new(RefCell::new(TreeNode::new(1)));
     let node2 = Rc::new(RefCell::new(TreeNode::new(2)));

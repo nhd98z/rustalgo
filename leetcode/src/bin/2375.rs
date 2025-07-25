@@ -26,8 +26,5 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(
-        Solution::smallest_number("IIIDIDDD".to_string()),
-        "123549876"
-    );
+    assert_eq!(Solution::smallest_number("IIIDIDDD".to_string()), "123549876");
 }

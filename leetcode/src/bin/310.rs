@@ -30,9 +30,7 @@ impl Solution {
         let heights: Vec<i32> = (0..n).map(|i| Self::find_height(n, i, &edges)).collect();
         let min_height = heights.iter().min().unwrap();
         dbg!(&min_height);
-        (0..n)
-            .filter(|&i| heights[i as usize] == *min_height)
-            .collect()
+        (0..n).filter(|&i| heights[i as usize] == *min_height).collect()
     }
 
     pub fn find_min_height_trees(n: i32, edges: Vec<Vec<i32>>) -> Vec<i32> {
@@ -89,10 +87,7 @@ fn main() {
         vec![1]
     );
     assert_eq!(
-        Solution::find_min_height_trees(
-            6,
-            vec![vec![3, 0], vec![3, 1], vec![3, 2], vec![3, 4], vec![5, 4]]
-        ),
+        Solution::find_min_height_trees(6, vec![vec![3, 0], vec![3, 1], vec![3, 2], vec![3, 4], vec![5, 4]]),
         vec![3, 4]
     );
 }

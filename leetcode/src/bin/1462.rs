@@ -16,8 +16,14 @@ impl Solution {
         // Tổng: O(N*(V + E))
         //
         let n = num_courses as usize;
-        let prerequisites = prerequisites.into_iter().map(|edge| (edge[0] as usize, edge[1] as usize)).collect::<Vec<_>>();
-        let queries = queries.into_iter().map(|edge| (edge[0] as usize, edge[1] as usize)).collect::<Vec<_>>();
+        let prerequisites = prerequisites
+            .into_iter()
+            .map(|edge| (edge[0] as usize, edge[1] as usize))
+            .collect::<Vec<_>>();
+        let queries = queries
+            .into_iter()
+            .map(|edge| (edge[0] as usize, edge[1] as usize))
+            .collect::<Vec<_>>();
 
         let mut graph = vec![vec![]; n];
         for (u, v) in prerequisites {
@@ -52,5 +58,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    assert_eq!(Solution::check_if_prerequisite(2, vec![vec![1, 0]], vec![vec![0, 1], vec![1, 0]]), vec![false, true]);
+    assert_eq!(
+        Solution::check_if_prerequisite(2, vec![vec![1, 0]], vec![vec![0, 1], vec![1, 0]]),
+        vec![false, true]
+    );
 }

@@ -16,6 +16,8 @@ impl Solution {
 struct Solution;
 
 fn main() {
-    unsafe { std::env::set_var("RUST_BACKTRACE", "1"); }
-    assert_eq!(Solution::maximum_count(vec![-2,-1,-1,1,2,3]), 3);
+    unsafe {
+        std::env::set_var("RUST_BACKTRACE", "1");
+    }
+    assert_eq!(Solution::maximum_count(vec![-2, -1, -1, 1, 2, 3]), 3);
 }

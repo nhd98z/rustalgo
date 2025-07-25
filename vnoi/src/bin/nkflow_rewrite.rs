@@ -78,9 +78,7 @@ macro_rules! read_line {
     ($t:ty) => {{
         let mut line = String::new();
         io::stdin().lock().read_line(&mut line).unwrap();
-        line.trim_end_matches(&['\r', '\n'][..])
-            .parse::<$t>()
-            .unwrap()
+        line.trim_end_matches(&['\r', '\n'][..]).parse::<$t>().unwrap()
     }};
     ($t:ty, $d:expr) => {{
         let mut line = String::new();

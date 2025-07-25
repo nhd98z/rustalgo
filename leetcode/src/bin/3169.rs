@@ -25,15 +25,9 @@ fn main() {
         std::env::set_var("RUST_BACKTRACE", "1");
     }
 
-    assert_eq!(
-        Solution::count_days(10, vec![vec![5, 7], vec![1, 3], vec![9, 10]]),
-        2
-    );
+    assert_eq!(Solution::count_days(10, vec![vec![5, 7], vec![1, 3], vec![9, 10]]), 2);
 
-    assert_eq!(
-        Solution::count_days(15, vec![vec![1, 5], vec![4, 8], vec![10, 14]]),
-        2
-    );
+    assert_eq!(Solution::count_days(15, vec![vec![1, 5], vec![4, 8], vec![10, 14]]), 2);
 
     assert_eq!(
         Solution::count_days(12, vec![vec![1, 3], vec![4, 6], vec![7, 9], vec![10, 12]]),

@@ -24,8 +24,5 @@ struct Solution;
 
 fn main() {
     assert_eq!(Solution::maximum_unique_subarray(vec![4, 2, 4, 5, 6]), 17);
-    assert_eq!(
-        Solution::maximum_unique_subarray(vec![5, 2, 1, 2, 5, 2, 1, 2, 5]),
-        8
-    );
+    assert_eq!(Solution::maximum_unique_subarray(vec![5, 2, 1, 2, 5, 2, 1, 2, 5]), 8);
 }

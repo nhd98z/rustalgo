@@ -15,7 +15,7 @@ impl Solution {
             }
             visited[pos] = true;
         }
-        false   
+        false
     }
 
     pub fn can_jump_stupid(a: Vec<i32>) -> bool {
@@ -44,9 +44,7 @@ fn main() {
     assert_eq!(Solution::can_jump(vec![2, 3, 1, 1, 4]), true);
     assert_eq!(Solution::can_jump(vec![3, 2, 1, 0, 4]), false);
     assert_eq!(
-        Solution::can_jump(vec![
-            2, 3, 1, 1, 4, 2, 1, 5, 3, 2, 1, 0, 4, 2, 3, 1, 1, 2, 3, 1
-        ]),
+        Solution::can_jump(vec![2, 3, 1, 1, 4, 2, 1, 5, 3, 2, 1, 0, 4, 2, 3, 1, 1, 2, 3, 1]),
         true
     );
 }

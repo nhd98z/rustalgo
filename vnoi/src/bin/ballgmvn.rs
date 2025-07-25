@@ -39,12 +39,7 @@ fn solve_one<R: std::io::BufRead>(reader: &mut R) {
         // println!("bb = {:?}", &bb);
         for j in 0..n - 1 {
             if slopes[j].0 == slopes[j + 1].0 {
-                println!(
-                    "{} {} {}",
-                    i + 1,
-                    slopes[j].1 + n + 1,
-                    slopes[j + 1].1 + n + 1
-                );
+                println!("{} {} {}", i + 1, slopes[j].1 + n + 1, slopes[j + 1].1 + n + 1);
                 return;
             }
         }
@@ -87,17 +82,12 @@ fn get_reader() -> Box<dyn std::io::BufRead> {
     if std::env::var("USER").unwrap_or_default() == "nhd98z" {
         let path = format!(
             "vnoi/src/bin/{}.txt",
-            std::path::Path::new(file!())
-                .file_stem()
-                .unwrap()
-                .to_str()
-                .unwrap()
+            std::path::Path::new(file!()).file_stem().unwrap().to_str().unwrap()
         );
         match std::fs::File::open(&path) {
             Ok(file) => Box::new(std::io::BufReader::new(file)),
             Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
-                std::fs::File::create(&path)
-                    .expect(&format!("Failed to create input file: {}", &path));
+                std::fs::File::create(&path).expect(&format!("Failed to create input file: {}", &path));
                 panic!("Input file not found. An empty file has been created.");
             }
             Err(e) => {
